@@ -1,139 +1,66 @@
 package hospital;
 
+import java.time.LocalDate;
+import hospital.person.Doctor;
+import hospital.person.Nurse;
+import hospital.person.Patient;
+import hospital.room.IntensiveCareRoom;
+import hospital.room.PatientsRoom;
+import hospital.room.SurgeryRoom;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
 
 public class Hospital {
+    static ArrayList<Appointment> AppointmentArrayList = new ArrayList<>();
+    static ArrayList<Doctor> DoctorArraylist = new ArrayList<>();
 
-    private static final Scanner scanner = new Scanner(System.in);
-
-    public static void main(String[] args){
-        ArrayList<Schedule> schedule = new ArrayList<>();
-
-        Doctor family = new Doctor("Smith", 30,"US", "Family physician");
-        Doctor pediatrician = new Doctor("James", 39,"US", "Pediatrician");
-        Doctor surgeon = new Doctor("Butcher", 66,"Canada", "Surgeon");
-        Doctor gynecologist = new Doctor("Sanders", 45,"Argentina", "Gynecologist");
-        Nurse nurse1 = new Nurse("Ramirez", 21,"Mexico");
-        Nurse nurse2 = new Nurse("Da Silva", 28,"Brazil");
-        PatientsRoom patientsRoom1 = new PatientsRoom(1,nurse1);
-        PatientsRoom patientsRoom2 = new PatientsRoom(2,nurse2);
-
-        boolean i = true;
-        while(i){
-            printMenu();
-            System.out.println("Enter an option: ");
-            int option= scanner.nextInt();
-
-            switch (option){
-
-                case 0:
-                    printMenu();
-                    break;
-                case 1:
-                    int diagnostic;
-                    Patient p = newPatient();
-                    if(p.getAge()<18){
-                       diagnostic=diagnose(pediatrician, p);
-                    }else {
-                        diagnostic = diagnose(family, p);
-                    }
-
-                    switch (diagnostic){
-                        case 0:
-                            System.out.println("The patient can go home.");
-                            break;
-                        case 1:
-                            SurgeryRoom surgeryRoom1 = new SurgeryRoom(10,surgeon,p,"Brain tumour");
-                            IntensiveCareRoom intensive1 = new IntensiveCareRoom(5,true,p);
-                            break;
-                        case 2:
-                            schedule.add( new Schedule(p.getAppointment(),gynecologist,p));
-                        case 3:
-                            SurgeryRoom surgeryRoom2 = new SurgeryRoom(3,surgeon,p,"Stomach cancer");
-                            break;
-                        case 4:
-                            if(patientsRoom1.getPatient1()==null) {
-                                patientsRoom1.setPatient1(p);
-                            } else if (patientsRoom1.getPatient2()==null) {
-                                patientsRoom1.setPatient2(p);
-                            }else if(patientsRoom2.getPatient1()==null) {
-                                patientsRoom2.setPatient1(p);
-                            }else if (patientsRoom2.getPatient2()==null) {
-                                patientsRoom1.setPatient2(p);
-                            } else System.out.println("No room available.");
-                            break;
-                        case -1:
-                            break;
-
-                    }
-
-                    break;
-                case 2:
-                    System.out.println("Enter patient's name: ");
-                    String name = scanner.next();
-                    System.out.println(findAppointment(name,schedule));
-                    break;
-                case 3:
-                    i = false;
-            }
-        }
+    static ArrayList<Patient> PatientsArraylist = new ArrayList<>();
+    static ArrayList<Nurse> NurseArraylist = new ArrayList<>();
+    static ArrayList<PatientsRoom> PatientsRoomArraylist = new ArrayList<>();
+    static ArrayList<SurgeryRoom> SurgeryRoomArrayList = new ArrayList<>();
+    static ArrayList<IntensiveCareRoom> IntensiveCareRoomArrayList = new ArrayList<>();
 
 
+    public static void newPatient(String name, int age, boolean isMale, String nationality, String symptoms, int weight, int height) {
+        PatientsArraylist.add(new Patient(name, age, isMale, nationality, symptoms, weight, height));
     }
 
-    static void printMenu(){
-        System.out.println("Menu:\n" +
-                "0.Show menu\n" +
-                "1.Create new patient and get diagnostic.\n" +
-                "2.Search appointments.\n" +
-                "3.Quit.");
-    }
-    static String findAppointment(String name, ArrayList<Schedule> schedule) {
 
-        for (Schedule pepe : schedule) {
-            if (pepe.getPatient().getName().equals(name)) {
-                return pepe.getPatient().getAppointment();
-            }
-        }
-        return null;
-    }
-
-    static int diagnose(Doctor doctor, Patient p){
-        System.out.println("Doctor "+ doctor.getName()+ " is examining the patient "+ p.getName());
-        boolean isSerious=getExam();
+    public static int getDiagnostic(int i) {
+        Patient p = PatientsArraylist.get(i);
+        boolean isSerious = getExam();
         System.out.println("The diagnosis is: ");
-        switch (p.getSymptoms().toLowerCase()){
+        switch (p.getSymptoms().toLowerCase()) {
             case "fever":
-                if(isSerious){
+                if (isSerious) {
                     System.out.println("Patient need to stay in hospital.");
+
                     return 4;
-                }else {
+                } else {
                     System.out.println("Ibuprofen every 8 hours.");
                     return 0;
                 }
             case "headache":
-                if(isSerious){
-                    p.setPutInHospital(true);
+                if (isSerious) {
+
                     System.out.println("Brain tumour, prepare to surgery.");
                     return 1;
 
-                }else System.out.println("Ibuprofen every 8 hours.");
+                } else System.out.println("Ibuprofen every 8 hours.");
                 return 0;
             case "vomit":
-                if (!p.isMale()){
-                    if(isSerious) {
+                if (!p.isMale()) {
+                    if (isSerious) {
                         System.out.println("Appointment with gynecologist");
-                        p.setAppointment("Tuesday 14:45");
+                        setAppointment(getPatient(p.getName()),getDoctorPerSpecialty("Gynecologist"),"YYYYMMDD"); //STILL NOT FINISHED
                         return 2;
-                    }else {
+                    } else {
                         System.out.println("Rest and diet.");
                         return 0;
                     }
-                }else {
-                    if (isSerious){
+                } else {
+                    if (isSerious) {
                         System.out.println("Stomach cancer");
                         return 3;
                     }
@@ -143,16 +70,16 @@ public class Hospital {
 
             case "broken bone":
                 System.out.println("Get an X-RAY and put a cast");
-                if(isSerious){
+                if (isSerious) {
                     System.out.println("Patient need to stay in hospital.");
                     return 4;
-                }else return 0;
+                } else return 0;
 
             case "decompensation":
-                if(isSerious){
+                if (isSerious) {
                     System.out.println("Patient need to stay in hospital.");
                     return 4;
-                }else return 0;
+                } else return 0;
 
             default:
                 System.out.println("We cannot get a diagnosis for those symptoms.");
@@ -162,40 +89,61 @@ public class Hospital {
         }
     }
 
-    static boolean getExam(){
+
+    public static boolean getExam() {
         Random random = new Random();
         return random.nextBoolean();
     }
 
-    static Patient newPatient(){
-        String name;
-        int age;
-        String nationality;
-        String symptoms;
-        int weight;
-        int height;
-        boolean healthCareProvider;
-        boolean isMale;
 
-        System.out.println("Enter new patient name: ");
-        name = scanner.next();
-        System.out.println("Enter patient age: ");
-        age = scanner.nextInt();
-        System.out.println("Is male? true/false");
-        isMale = scanner.nextBoolean();
-        System.out.println("Enter nationality: ");
-        nationality = scanner.next();
-        System.out.println("Enter weight: ");
-        weight= scanner.nextInt();
-        System.out.println("Enter height: ");
-        height=scanner.nextInt();
-        System.out.println("Enter symptoms: ");
-        symptoms= scanner.next();
-        System.out.println("Has health care provider? true/false ");
-        healthCareProvider = scanner.nextBoolean();
+    public static int getPatient(String name) {
+        for (Patient p : PatientsArraylist) {
+            if (p.getName().equals(name)) {
+                return PatientsArraylist.indexOf(p);
+            }
+        }
+        return -1;
 
-        return new Patient(name,age,isMale,nationality,symptoms,healthCareProvider,weight,height);
+
+    }
+
+    public static int getDoctor(String name) {
+        for (Doctor d : DoctorArraylist) {
+            if (d.getName().equals(name)) {
+                return DoctorArraylist.indexOf(d);
+            }
+        }
+        return -1;
+    }
+
+    public static void assignRoom(Patient patient) {
+        for (PatientsRoom pr : PatientsRoomArraylist) {
+            if(pr.getPatient1() == null){
+                pr.setPatient1(patient);
+                return;
+            }else if(pr.getPatient2() == null){
+                pr.setPatient2(patient);
+                return;
+            }else System.out.println("No room available");
+        }
+
+    }
+
+    public static int getDoctorPerSpecialty(String specialty) {
+        for (Doctor d : DoctorArraylist) {
+            if (d.getSpecialty().equals(specialty)) {
+                return DoctorArraylist.indexOf(d);
+            }
+        }
+        return -1;
+    }
+
+    public static void setAppointment(int indexOfPatient, int indexOfDoctor, String date) {
+
+        AppointmentArrayList.add(new Appointment(LocalDate.parse(date), DoctorArraylist.get(indexOfDoctor), PatientsArraylist.get(indexOfPatient)));
 
 
     }
 }
+
+
