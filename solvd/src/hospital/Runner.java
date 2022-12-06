@@ -4,10 +4,13 @@ package hospital;
 import hospital.person.Doctors.*;
 import hospital.person.Nurse;
 
-import hospital.room.PatientsRoom;
+import hospital.person.Patient;
+import hospital.room.rooms.PatientsRoom;
 
 
 import java.util.Scanner;
+//import org.apache.logging.log4j.LogManager;
+//import org.apache.logging.log4j.Logger;
 
 public class Runner {
 
@@ -16,17 +19,35 @@ public class Runner {
     public static void main(String[] args) {
 
         //INITIALIZATION OF THE PEOPLE AND ROOMS
+        Hospital.PatientsArraylist.add(new Patient("alejo",23,true, "fever",83,182));
+        Hospital.PatientsArraylist.add(new Patient("robert",29,true, "broken bone",90,172));
+        Hospital.PatientsArraylist.add(new Patient("juana",15,false, "examination",50,117));
+        Hospital.PatientsArraylist.add(new Patient("pepa",29,false, "pregnant",90,172));
         Hospital.DoctorArraylist.add(new FamilyPhysician("Smith", 30));
         Hospital.DoctorArraylist.add(new Pediatrician("James", 39));
-        Hospital.DoctorArraylist.add(new Surgeon("Butcher", 66));
         Hospital.DoctorArraylist.add(new Gynecologist("Jones", 32));
-        Hospital.NurseArraylist.add(new Nurse("Ramirez", 21));
-        Hospital.NurseArraylist.add(new Nurse("Da Silva", 28));
-        Hospital.PatientsRoomArraylist.add(new PatientsRoom(1, Hospital.NurseArraylist.get(0)));
-        Hospital.PatientsRoomArraylist.add(new PatientsRoom(2, Hospital.NurseArraylist.get(1)));
+        Hospital.NurseLinkedList.add(new Nurse("Ramirez", 21));
+        Hospital.NurseLinkedList.add(new Nurse("Da Silva", 28));
+        Hospital.NurseLinkedList.add(new Nurse("Perez", 36));
+        Hospital.NurseLinkedList.add(new Nurse("Gonzalez", 36));
+        Hospital.RoomArraylist.add(new PatientsRoom(1, Hospital.NurseLinkedList.get(0)));
+        Hospital.RoomArraylist.add(new PatientsRoom(2, Hospital.NurseLinkedList.get(1)));
 
 
-        boolean i = true;
+        Hospital.DoctorArraylist.get(0).getDiagnostic(Hospital.PatientsArraylist.get(0));
+        Hospital.DoctorArraylist.get(1).getDiagnostic(Hospital.PatientsArraylist.get(1));
+        Hospital.DoctorArraylist.get(1).getDiagnostic(Hospital.PatientsArraylist.get(2));
+        Hospital.DoctorArraylist.get(2).getDiagnostic(Hospital.PatientsArraylist.get(3));
+
+
+
+
+
+
+
+     //   AssignRoom.assignRoom(Hospital.RoomArraylist,Hospital.PatientsArraylist.contains());
+
+       /* boolean i = true;
         while (i) {
             printMenu();
             System.out.println("Enter an option: ");
@@ -66,43 +87,43 @@ public class Runner {
                 case 4:
                     i = false;
             }
-        }
+        }*/
 
     }
 
-    static void printMenu() {
-        System.out.println("Menu:\n" +
-                "0.Show menu\n" +
-                "1.Create new patient \n" +
-                "2.Get diagnostic.\n" +
-                "3.Search appointments.\n" +
-                "4.Quit.");
-    }
-
-    static void addPatient(){
-        String patientName1;
-        int age;
-        String nationality;
-        String symptoms;
-        int weight;
-        int height;
-        boolean isMale;
-
-        System.out.println("Enter new patient name: ");
-        patientName1 = scanner.next();
-        System.out.println("Enter patient age: ");
-        age = scanner.nextInt();
-        System.out.println("Is male? true/false");
-        isMale = scanner.nextBoolean();
-        System.out.println("Enter nationality: ");
-        nationality = scanner.next();
-        System.out.println("Enter weight: ");
-        weight = scanner.nextInt();
-        System.out.println("Enter height: ");
-        height = scanner.nextInt();
-        System.out.println("Enter symptoms: ");
-        symptoms = scanner.next();
-
-        Hospital.newPatient(patientName1, age, isMale, nationality, symptoms, weight, height);
-    }
+//    static void printMenu() {
+//        System.out.println("Menu:\n" +
+//                "0.Show menu\n" +
+//                "1.Create new patient \n" +
+//                "2.Get diagnostic.\n" +
+//                "3.Search appointments.\n" +
+//                "4.Quit.");
+//    }
+//
+//    static void addPatient(){
+//        String patientName1;
+//        int age;
+//        String nationality;
+//        String symptoms;
+//        int weight;
+//        int height;
+//        boolean isMale;
+//
+//        System.out.println("Enter new patient name: ");
+//        patientName1 = scanner.next();
+//        System.out.println("Enter patient age: ");
+//        age = scanner.nextInt();
+//        System.out.println("Is male? true/false");
+//        isMale = scanner.nextBoolean();
+//        System.out.println("Enter nationality: ");
+//        nationality = scanner.next();
+//        System.out.println("Enter weight: ");
+//        weight = scanner.nextInt();
+//        System.out.println("Enter height: ");
+//        height = scanner.nextInt();
+//        System.out.println("Enter symptoms: ");
+//        symptoms = scanner.next();
+//
+//        Hospital.newPatient(patientName1, age, isMale, nationality, symptoms, weight, height);
+//    }
 }

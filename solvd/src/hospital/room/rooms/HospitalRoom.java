@@ -1,6 +1,8 @@
-package hospital.room;
+package hospital.room.rooms;
 
-abstract class HospitalRoom {
+import hospital.interfaces.IPrepareRoom;
+
+public abstract class HospitalRoom implements IPrepareRoom {
     private int numberOfBeds;
     private int floor;
     private int roomNumber;

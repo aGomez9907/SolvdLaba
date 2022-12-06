@@ -47,4 +47,12 @@ public abstract class Person {
     public void startWork(){}
 
     public void stopWork(){}
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
 }

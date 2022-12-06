@@ -1,8 +1,7 @@
-package hospital.room;
+package hospital.room.rooms;
 
 import hospital.person.Nurse;
 import hospital.person.Patient;
-import hospital.room.HospitalRoom;
 
 public class PatientsRoom extends HospitalRoom {
     private Patient patient1;
@@ -30,5 +29,16 @@ public class PatientsRoom extends HospitalRoom {
 
     public void setPatient2(Patient patient2) {
         this.patient2 = patient2;
+    }
+
+
+    public void makeBed(){
+        System.out.println("Bed ready for patient.");
+    };
+    public void disinfectRoom(){
+        System.out.println("Room ready for patient.");
+    }
+    public void prepareIVSolution(){
+        System.out.println("IV solution ready for patient.");
     }
 }

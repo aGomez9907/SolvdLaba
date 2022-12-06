@@ -1,8 +1,8 @@
 package hospital.person;
 
-import hospital.person.Person;
+import hospital.interfaces.IPrepareRoom;
 
-public class Nurse extends Person {
+public class Nurse extends Person implements IPrepareRoom {
     public Nurse(String name, int age){
         super(name, age);
     }
@@ -20,5 +20,15 @@ public class Nurse extends Person {
     @Override
     public String toString() {
         return super.toString();
+    }
+
+    public void makeBed() {
+        System.out.println("The bed has been made.");
+    }
+    public void disinfectRoom(){
+        System.out.println("The room has been disinfected.");
+    }
+    public void prepareIVSolution(){
+        System.out.println("The IV solution is ready.");
     }
 }
