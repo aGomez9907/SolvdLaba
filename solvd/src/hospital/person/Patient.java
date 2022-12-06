@@ -1,7 +1,5 @@
 package hospital.person;
 
-import hospital.person.Person;
-
 import java.util.Objects;
 
 public class Patient extends Person {
@@ -13,19 +11,19 @@ public class Patient extends Person {
     private int height;
 
     private boolean isMale;
-    public Patient(String name, int age,boolean isMale, String symptoms, int weight, int height){
-        super(name,age);
-        this.weight=weight;
-        this.height=height;
-        this.symptoms=symptoms;
-        this.isMale=isMale;
+
+    public Patient(String name, int age, boolean isMale, String symptoms, int weight, int height) {
+        super(name, age);
+        this.weight = weight;
+        this.height = height;
+        this.symptoms = symptoms;
+        this.isMale = isMale;
     }
 
 
     public void setPutInHospital(boolean putInHospital) {
         this.putInHospital = putInHospital;
     }
-
 
 
     public boolean isMale() {

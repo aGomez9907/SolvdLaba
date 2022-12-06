@@ -1,11 +1,12 @@
 package hospital.interfaces;
+
 import hospital.person.Patient;
 
 import java.util.Random;
 
 public interface IGetExam {
 
-    static boolean getExam(){
+    static boolean getExam() {
         Random random = new Random();
         return random.nextBoolean();
     }

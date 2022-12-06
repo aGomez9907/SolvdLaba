@@ -1,11 +1,11 @@
 package hospital;
 
-import java.time.LocalDate;
 import hospital.person.Doctors.Doctor;
 import hospital.person.Nurse;
 import hospital.person.Patient;
 import hospital.room.rooms.HospitalRoom;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -18,16 +18,9 @@ public class Hospital {
     static ArrayList<HospitalRoom> RoomArraylist = new ArrayList<>();
 
 
-
     public static void newPatient(String name, int age, boolean isMale, String nationality, String symptoms, int weight, int height) {
         PatientsArraylist.add(new Patient(name, age, isMale, symptoms, weight, height));
     }
-
-
-
-
-
-
 
 
     public static int getPatient(String name) {

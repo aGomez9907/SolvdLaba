@@ -1,8 +1,9 @@
 package hospital;
 
-import java.time.LocalDate;
 import hospital.person.Doctors.Doctor;
 import hospital.person.Patient;
+
+import java.time.LocalDate;
 
 public class Appointment {
     private LocalDate date;

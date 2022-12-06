@@ -35,13 +35,17 @@ public class PatientsRoom extends HospitalRoom {
     }
 
 
-    public void makeBed(){
+    public void makeBed() {
         log.info("Bed ready for patient.");
-    };
-    public void disinfectRoom(){
+    }
+
+    ;
+
+    public void disinfectRoom() {
         log.info("Room ready for patient.");
     }
-    public void prepareIVSolution(){
+
+    public void prepareIVSolution() {
         log.info("IV solution ready for patient.");
     }
 }

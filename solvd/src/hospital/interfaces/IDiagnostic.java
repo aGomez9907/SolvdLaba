@@ -5,7 +5,6 @@ import hospital.person.Patient;
 public interface IDiagnostic extends IGetExam {
 
 
-
     void getDiagnostic(Patient patient);
 
 }

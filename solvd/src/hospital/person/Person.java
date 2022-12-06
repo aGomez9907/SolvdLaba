@@ -5,16 +5,16 @@ public abstract class Person {
     private int age;
 
 
-    public Person(){
+    public Person() {
 
     }
 
-    public Person(String name, int age){
-        if(age<0){
-            this.age=-1;
+    public Person(String name, int age) {
+        if (age < 0) {
+            this.age = -1;
         }
-        this.name=name;
-        this.age=age;
+        this.name = name;
+        this.age = age;
 
     }
 
@@ -27,7 +27,6 @@ public abstract class Person {
     }
 
 
-
     public String getName() {
         return name;
     }
@@ -37,16 +36,15 @@ public abstract class Person {
     }
 
 
-
-
-
     //METHODS
     // The idea here is to provide methods for people to start working e.g. at 8am and stop at 17pm
 
 
-    public void startWork(){}
+    public void startWork() {
+    }
 
-    public void stopWork(){}
+    public void stopWork() {
+    }
 
     @Override
     public String toString() {
