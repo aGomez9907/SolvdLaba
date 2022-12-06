@@ -4,12 +4,12 @@ import hospital.Hospital;
 import hospital.interfaces.IGetExam;
 import hospital.person.Patient;
 import hospital.room.AssignRoom;
-
-import java.util.logging.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Gynecologist extends Doctor{
 
-    private static Logger log = Logger.getLogger("hospital.person.Doctors.Gynecologist");
+    private static Logger LOGGER = LogManager.getLogger();
 
     public Gynecologist() {
     }
@@ -20,7 +20,7 @@ public class Gynecologist extends Doctor{
 
 
     public void birth(){
-        log.info("The baby has been born.");
+        LOGGER.info("The baby has been born.");
     }
 
     public boolean pelvicExam(){
@@ -32,28 +32,28 @@ public class Gynecologist extends Doctor{
     @Override
     public void getDiagnostic(Patient p) {
         if(p.isMale()){
-            log.info("The patient is male. Cannot be diagnosed.");
+            LOGGER.info("The patient is male. Cannot be diagnosed.");
             return;
         }
         revision();
 
-        log.info("The diagnosis is: ");
+        LOGGER.info("The diagnosis is: ");
         switch (p.getSymptoms().toLowerCase()){
 
            case "pelvic exam":
                if(pelvicExam()){
-                   log.info("Everything is fine, can go home.");
+                   LOGGER.info("Everything is fine, can go home.");
                }else {
-                   log.info("Exams went bad, need to stay at hospital");
+                   LOGGER.info("Exams went bad, need to stay at hospital");
                    AssignRoom.assignRoom(Hospital.getRoomArraylist(),p,false);
                }
                break;
 
             case "vomit":
                 if (pregnancyTest()){
-                    log.info("Congratulations you are pregnant.");
+                    LOGGER.info("Congratulations you are pregnant.");
                 }else {
-                    log.info("Not pregnant, something you ate was bad.");
+                    LOGGER.info("Not pregnant, something you ate was bad.");
                 }
                 break;
             case "pregnant":
@@ -61,7 +61,7 @@ public class Gynecologist extends Doctor{
                 break;
 
             default:
-                log.info("We cannot get a diagnosis for those symptoms.");
+                LOGGER.info("We cannot get a diagnosis for those symptoms.");
                 break;
 
 

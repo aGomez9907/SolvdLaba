@@ -7,14 +7,15 @@ import hospital.person.Person;
 import hospital.interfaces.IGetExam;
 
 
-import java.util.logging.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
-import java.util.logging.Logger;
+
 
 
 public class Doctor extends Person implements IGetExam, IDiagnostic {
 
-    private static Logger log = Logger.getLogger("hospital.person.Doctors.Doctor");
+    private static Logger LOGGER = LogManager.getLogger();
     //CONSTRUCTOR
     public Doctor() {
 
@@ -27,7 +28,7 @@ public class Doctor extends Person implements IGetExam, IDiagnostic {
 
     //METHODS
     public void revision() {
-        log.info("Doctor " + super.getName() + " is examining the patient.");
+        LOGGER.info("Doctor " + super.getName() + " is examining the patient.");
     }
 
     public double measureTemperature() {
@@ -65,16 +66,16 @@ public class Doctor extends Person implements IGetExam, IDiagnostic {
 
         revision();
 
-        log.info("The diagnosis is: ");
+        LOGGER.info("The diagnosis is: ");
         switch (p.getSymptoms().toLowerCase()){
             case "fever":
                 if(measureTemperature()>37) {
-                    log.info("Patient need to rest and ibuprofen every 8 hours.");
+                    LOGGER.info("Patient need to rest and ibuprofen every 8 hours.");
                     break;
                 }else if(measureTemperature()<34) {
-                    log.info("Patient has hypothermia, need to warm up.");
+                    LOGGER.info("Patient has hypothermia, need to warm up.");
                     break;
-                }else log.info("Everything fine.");
+                }else LOGGER.info("Everything fine.");
                 break;
 //            case "headache":
 //
@@ -86,7 +87,7 @@ public class Doctor extends Person implements IGetExam, IDiagnostic {
 //            case "decompensation":
 
             default:
-                log.info("We cannot get a diagnosis for those symptoms.");
+                LOGGER.info("We cannot get a diagnosis for those symptoms.");
                 break;
 
 

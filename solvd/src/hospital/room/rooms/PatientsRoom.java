@@ -2,11 +2,11 @@ package hospital.room.rooms;
 
 import hospital.person.Nurse;
 import hospital.person.Patient;
-
-import java.util.logging.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class PatientsRoom extends HospitalRoom {
-    private static Logger log = Logger.getLogger("hospital.room.rooms.PatientsRoom");
+    private static final Logger LOGGER = LogManager.getLogger();
     private Patient patient1;
     private Patient patient2;
     private Nurse nurse;
@@ -36,16 +36,16 @@ public class PatientsRoom extends HospitalRoom {
 
 
     public void makeBed() {
-        log.info("Bed ready for patient.");
+        LOGGER.info("Bed ready for patient.");
     }
 
     ;
 
     public void disinfectRoom() {
-        log.info("Room ready for patient.");
+        LOGGER.info("Room ready for patient.");
     }
 
     public void prepareIVSolution() {
-        log.info("IV solution ready for patient.");
+        LOGGER.info("IV solution ready for patient.");
     }
 }

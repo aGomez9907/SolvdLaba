@@ -7,15 +7,16 @@ import hospital.person.Patient;
 import hospital.room.rooms.HospitalRoom;
 import hospital.room.rooms.IntensiveCareRoom;
 import hospital.room.rooms.PatientsRoom;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.ListIterator;
-import java.util.logging.Logger;
 
 public class AssignRoom {
 
-    private static Logger log = Logger.getLogger("hospital.room.AssignRoom");
+    private static final Logger LOGGER = LogManager.getLogger();
 
     private static int i = 0;
 
@@ -34,7 +35,7 @@ public class AssignRoom {
                         nurse.prepareIVSolution();
 
                         pr.setPatient1(patient);
-                        log.info("Patient set in room N°" + pr.getRoomNumber());
+                        LOGGER.info("Patient set in room N°" + pr.getRoomNumber());
                         return;
                     } else if (pr.getPatient2() == null) {
 
@@ -44,9 +45,9 @@ public class AssignRoom {
                         nurse.prepareIVSolution();
 
                         pr.setPatient2(patient);
-                        log.info("Patient set in room N°" + pr.getRoomNumber());
+                        LOGGER.info("Patient set in room N°" + pr.getRoomNumber());
                         return;
-                    } else log.info("No bed available in room N°" + pr.getRoomNumber());
+                    } else LOGGER.info("No bed available in room N°" + pr.getRoomNumber());
                 }
 
             } else {
@@ -60,9 +61,9 @@ public class AssignRoom {
                         nurse.prepareIVSolution();
 
                         ir.setPatient(patient);
-                        log.info("Patient set in room N°" + ir.getRoomNumber());
+                        LOGGER.info("Patient set in room N°" + ir.getRoomNumber());
                         return;
-                    } else log.info("No bed available in room N°" + ir.getRoomNumber());
+                    } else LOGGER.info("No bed available in room N°" + ir.getRoomNumber());
                 }
             }
         }

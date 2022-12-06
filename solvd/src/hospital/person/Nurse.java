@@ -1,12 +1,12 @@
 package hospital.person;
 
 import hospital.interfaces.IPrepareRoom;
-
-import java.util.logging.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Nurse extends Person implements IPrepareRoom {
 
-    private static Logger log = Logger.getLogger("hospital.person.Nurse");
+    private static final Logger LOGGER = LogManager.getLogger();
     public Nurse(String name, int age){
         super(name, age);
     }
@@ -27,12 +27,12 @@ public class Nurse extends Person implements IPrepareRoom {
     }
 
     public void makeBed() {
-        log.info("The bed has been made.");
+        LOGGER.info("The bed has been made.");
     }
     public void disinfectRoom(){
-        log.info("The room has been disinfected.");
+        LOGGER.info("The room has been disinfected.");
     }
     public void prepareIVSolution(){
-        log.info("The IV solution is ready.");
+        LOGGER.info("The IV solution is ready.");
     }
 }

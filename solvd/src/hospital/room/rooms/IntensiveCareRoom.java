@@ -1,12 +1,12 @@
 package hospital.room.rooms;
 
 import hospital.person.Patient;
-
-import java.util.logging.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class IntensiveCareRoom extends HospitalRoom {
 
-    private static Logger log = Logger.getLogger("hospital.room.rooms.IntensiveCareRoom");
+    private static final Logger LOGGER = LogManager.getLogger();
     private Patient patient;
 
     public IntensiveCareRoom(int roomNumber, Patient patient) {
@@ -24,16 +24,16 @@ public class IntensiveCareRoom extends HospitalRoom {
     }
 
     public void makeBed() {
-        log.info("Bed ready for patient.");
+        LOGGER.info("Bed ready for patient.");
     }
 
     ;
 
     public void disinfectRoom() {
-        log.info("Room ready for patient.");
+        LOGGER.info("Room ready for patient.");
     }
 
     public void prepareIVSolution() {
-        log.info("IV solution ready for patient.");
+        LOGGER.info("IV solution ready for patient.");
     }
 }
