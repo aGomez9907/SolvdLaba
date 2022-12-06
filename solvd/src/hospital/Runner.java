@@ -9,12 +9,13 @@ import hospital.room.rooms.PatientsRoom;
 
 
 import java.util.Scanner;
-//import org.apache.logging.log4j.LogManager;
-//import org.apache.logging.log4j.Logger;
+import java.util.logging.LogManager;
+
+import java.util.logging.Logger;
 
 public class Runner {
 
-    private static final Scanner scanner = new Scanner(System.in);
+    private static Logger log = Logger.getLogger("hospital.Runner");
 
     public static void main(String[] args) {
 
@@ -40,7 +41,7 @@ public class Runner {
         Hospital.DoctorArraylist.get(2).getDiagnostic(Hospital.PatientsArraylist.get(3));
 
 
-
+        log.info("Hello World.");
 
 
 

@@ -3,7 +3,10 @@ package hospital.room.rooms;
 import hospital.person.Nurse;
 import hospital.person.Patient;
 
+import java.util.logging.Logger;
+
 public class PatientsRoom extends HospitalRoom {
+    private static Logger log = Logger.getLogger("hospital.room.rooms.PatientsRoom");
     private Patient patient1;
     private Patient patient2;
     private Nurse nurse;
@@ -33,12 +36,12 @@ public class PatientsRoom extends HospitalRoom {
 
 
     public void makeBed(){
-        System.out.println("Bed ready for patient.");
+        log.info("Bed ready for patient.");
     };
     public void disinfectRoom(){
-        System.out.println("Room ready for patient.");
+        log.info("Room ready for patient.");
     }
     public void prepareIVSolution(){
-        System.out.println("IV solution ready for patient.");
+        log.info("IV solution ready for patient.");
     }
 }

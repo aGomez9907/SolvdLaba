@@ -2,7 +2,11 @@ package hospital.room.rooms;
 
 import hospital.person.Patient;
 
+import java.util.logging.Logger;
+
 public class IntensiveCareRoom extends HospitalRoom {
+
+    private static Logger log = Logger.getLogger("hospital.room.rooms.IntensiveCareRoom");
     private Patient patient;
     public IntensiveCareRoom(int roomNumber, Patient patient){
         super(1,3, roomNumber);
@@ -19,12 +23,12 @@ public class IntensiveCareRoom extends HospitalRoom {
     }
 
     public void makeBed(){
-        System.out.println("Bed ready for patient.");
+        log.info("Bed ready for patient.");
     };
     public void disinfectRoom(){
-        System.out.println("Room ready for patient.");
+        log.info("Room ready for patient.");
     }
     public void prepareIVSolution(){
-        System.out.println("IV solution ready for patient.");
+        log.info("IV solution ready for patient.");
     }
 }

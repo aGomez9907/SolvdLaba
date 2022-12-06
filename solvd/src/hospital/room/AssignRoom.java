@@ -11,8 +11,11 @@ import hospital.room.rooms.PatientsRoom;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.ListIterator;
+import java.util.logging.Logger;
 
 public class AssignRoom {
+
+    private static Logger log = Logger.getLogger("hospital.room.AssignRoom");
 
     private static int i=0;
 
@@ -31,7 +34,7 @@ public class AssignRoom {
                                 nurse.prepareIVSolution();
 
                                 pr.setPatient1(patient);
-                                System.out.println("Patient set in room N°"+ pr.getRoomNumber());
+                                log.info("Patient set in room N°"+ pr.getRoomNumber());
                                 return;
                             }else if(pr.getPatient2() == null){
 
@@ -41,9 +44,9 @@ public class AssignRoom {
                                 nurse.prepareIVSolution();
 
                                 pr.setPatient2(patient);
-                                System.out.println("Patient set in room N°"+ pr.getRoomNumber());
+                                log.info("Patient set in room N°"+ pr.getRoomNumber());
                                 return;
-                            }else System.out.println("No bed available in room N°" + pr.getRoomNumber());
+                            }else log.info("No bed available in room N°" + pr.getRoomNumber());
                 }
 
             }else{
@@ -57,9 +60,9 @@ public class AssignRoom {
                                 nurse.prepareIVSolution();
 
                                 ir.setPatient(patient);
-                                System.out.println("Patient set in room N°"+ ir.getRoomNumber());
+                                log.info("Patient set in room N°"+ ir.getRoomNumber());
                                 return;
-                            }else System.out.println("No bed available in room N°" + ir.getRoomNumber());
+                            }else log.info("No bed available in room N°" + ir.getRoomNumber());
                         }
                     }
         }

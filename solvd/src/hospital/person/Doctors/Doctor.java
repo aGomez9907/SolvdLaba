@@ -6,9 +6,15 @@ import hospital.person.Person;
 
 import hospital.interfaces.IGetExam;
 
+
+import java.util.logging.LogManager;
+
+import java.util.logging.Logger;
+
+
 public class Doctor extends Person implements IGetExam, IDiagnostic {
 
-
+    private static Logger log = Logger.getLogger("hospital.person.Doctors.Doctor");
     //CONSTRUCTOR
     public Doctor() {
 
@@ -21,7 +27,7 @@ public class Doctor extends Person implements IGetExam, IDiagnostic {
 
     //METHODS
     public void revision() {
-        System.out.println("Doctor " + super.getName() + " is examining the patient.");
+        log.info("Doctor " + super.getName() + " is examining the patient.");
     }
 
     public double measureTemperature() {
@@ -59,16 +65,16 @@ public class Doctor extends Person implements IGetExam, IDiagnostic {
 
         revision();
 
-        System.out.println("The diagnosis is: ");
+        log.info("The diagnosis is: ");
         switch (p.getSymptoms().toLowerCase()){
             case "fever":
                 if(measureTemperature()>37) {
-                    System.out.println("Patient need to rest and ibuprofen every 8 hours.");
+                    log.info("Patient need to rest and ibuprofen every 8 hours.");
                     break;
                 }else if(measureTemperature()<34) {
-                    System.out.println("Patient has hypothermia, need to warm up.");
+                    log.info("Patient has hypothermia, need to warm up.");
                     break;
-                }else System.out.println("Everything fine.");
+                }else log.info("Everything fine.");
                 break;
 //            case "headache":
 //
@@ -80,7 +86,7 @@ public class Doctor extends Person implements IGetExam, IDiagnostic {
 //            case "decompensation":
 
             default:
-                System.out.println("We cannot get a diagnosis for those symptoms.");
+                log.info("We cannot get a diagnosis for those symptoms.");
                 break;
 
 

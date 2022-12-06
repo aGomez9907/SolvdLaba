@@ -4,7 +4,11 @@ import hospital.interfaces.IGetExam;
 import hospital.person.Patient;
 import hospital.room.AssignRoom;
 
+import java.util.logging.Logger;
+
 public class Pediatrician extends Doctor{
+    private static Logger log = Logger.getLogger("hospital.person.Doctors.Pediatrician");
+    
 
     public Pediatrician() {
     }
@@ -25,34 +29,34 @@ public class Pediatrician extends Doctor{
 
     public void getDiagnostic(Patient p) {
         if (p.getAge()>=18){
-            System.out.println("Not a kid, cannot be diagnosed.");
+            log.info("Not a kid, cannot be diagnosed.");
         }
         revision();
 
-        System.out.println("The diagnosis is: ");
+        log.info("The diagnosis is: ");
         switch (p.getSymptoms().toLowerCase()){
             case "fever":
                 if(measureTemperature()>37) {
-                    System.out.println("Patient need to rest and ibuprofen every 8 hours.");
+                    log.info("Patient need to rest and ibuprofen every 8 hours.");
                     break;
                 }else if(measureTemperature()<34) {
-                    System.out.println("Patient has hypothermia, need to warm up.");
+                    log.info("Patient has hypothermia, need to warm up.");
                     break;
-                }else System.out.println("Everything fine.");
+                }else log.info("Everything fine.");
                 break;
             case "examination":
-                System.out.println("The patient weights "+ p.getWeight()+ "Kg and is "+ p.getHeight()+"cm tall.");
+                log.info("The patient weights "+ p.getWeight()+ "Kg and is "+ p.getHeight()+"cm tall.");
                 break;
             case "broken bone":
                 if (IGetExam.getExam()){
-                    System.out.println("Open fracture, need to stay in hospital.");
+                    log.info("Open fracture, need to stay in hospital.");
                     AssignRoom.assignRoom(Hospital.getRoomArraylist(),p,false);
                     break;
-                }else System.out.println("Use a cast and get rest. Patient can go home");
+                }else log.info("Use a cast and get rest. Patient can go home");
 
 
             default:
-                System.out.println("We cannot get a diagnosis for those symptoms.");
+                log.info("We cannot get a diagnosis for those symptoms.");
                 break;
 
 
