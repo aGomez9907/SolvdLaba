@@ -16,3 +16,22 @@
 2022-12-07 22:01:44.216 [main] INFO  hospital.person.Doctors.Gynecologist - The diagnosis is: 
 2022-12-07 22:01:44.217 [main] INFO  hospital.person.Doctors.Gynecologist - The baby has been born.
 2022-12-07 22:01:44.217 [main] INFO  hospital.Runner - This is an info message
+2022-12-07 22:31:14.156 [main] INFO  hospital.person.Doctors.Doctor - Doctor Smith is examining the patient.
+2022-12-07 22:31:14.159 [main] INFO  hospital.person.Doctors.FamilyPhysician - The diagnosis is: 
+2022-12-07 22:31:14.160 [main] INFO  hospital.person.Doctors.FamilyPhysician - Patient has hypothermia, need to warm up.
+2022-12-07 22:31:14.160 [main] INFO  hospital.person.Doctors.Pediatrician - Not a kid, cannot be diagnosed.
+2022-12-07 22:31:14.160 [main] INFO  hospital.person.Doctors.Doctor - Doctor James is examining the patient.
+2022-12-07 22:31:14.160 [main] INFO  hospital.person.Doctors.Pediatrician - The diagnosis is: 
+2022-12-07 22:31:14.161 [main] INFO  hospital.person.Doctors.Pediatrician - Open fracture, need to stay in hospital.
+2022-12-07 22:31:14.162 [main] INFO  hospital.person.Nurse - The room has been disinfected.
+2022-12-07 22:31:14.162 [main] INFO  hospital.person.Nurse - The bed has been made.
+2022-12-07 22:31:14.162 [main] INFO  hospital.person.Nurse - The IV solution is ready.
+2022-12-07 22:31:14.163 [main] INFO  hospital.room.AssignRoom - Patient set in room N°1
+2022-12-07 22:31:14.163 [main] INFO  hospital.person.Doctors.Doctor - Doctor James is examining the patient.
+2022-12-07 22:31:14.163 [main] INFO  hospital.person.Doctors.Pediatrician - The diagnosis is: 
+2022-12-07 22:31:14.167 [main] INFO  hospital.person.Doctors.Pediatrician - The patient weights 50Kg and is 117cm tall.
+2022-12-07 22:31:14.167 [main] INFO  hospital.person.Doctors.Doctor - Doctor Jones is examining the patient.
+2022-12-07 22:31:14.168 [main] INFO  hospital.person.Doctors.Gynecologist - The diagnosis is: 
+2022-12-07 22:31:14.168 [main] INFO  hospital.person.Doctors.Gynecologist - The baby has been born.
+2022-12-07 22:31:14.168 [main] INFO  hospital.Runner - This is an info message
+2022-12-07 22:31:14.168 [main] INFO  hospital.Runner - Another info message

@@ -42,6 +42,7 @@ public class Runner {
 
 
         LOGGER.info("This is an info message");
+        LOGGER.info("Another info message");
 
 
 
