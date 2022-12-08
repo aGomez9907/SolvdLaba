@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0968595a-058e-4d7d-b9c1-8c8d12498568" name="Changes" comment="working fine">
+      <change beforePath="$PROJECT_DIR$/SolvdLaba.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvd/solvd.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/Appointment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/Hospital.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/Runner.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/interfaces/IDiagnostic.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/interfaces/IGetExam.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/interfaces/IPrepareRoom.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/person/Doctors/Doctor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/person/Doctors/FamilyPhysician.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/person/Doctors/Gynecologist.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/person/Doctors/Pediatrician.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/person/Nurse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/person/Patient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/person/Person.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/room/AssignRoom.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/room/rooms/HospitalRoom.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/room/rooms/IntensiveCareRoom.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/room/rooms/PatientsRoom.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvd/src/solvd/firsttask/hello/world/HelloWorld.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvd/src/solvd/firsttask/sort/array/challenge/SortArrayChallenge.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="21f1cf54-85db-4d60-9d49-cb2b2e36ca77" />
+        <option name="url" value="https://github.com/aGomez9907/SolvdLaba.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2HrvVLgR8BAHptrsrhSGCC0E1aX" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "jdk.selected.JAVA_MODULE": "19",
+    "last_opened_file_path": "F:/Documentos/JAVA_GITHUB_REPOSITORY/SolvdLaba/resources/log4j-core-2.19.0 .jar",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pathVariables"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Documentos\JAVA_GITHUB_REPOSITORY\SolvdLaba\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Documentos\JAVA_GITHUB_REPOSITORY\SolvdLaba\resources" />
+      <recent name="F:\Documentos\JAVA_GITHUB_REPOSITORY\SolvdLaba" />
+      <recent name="F:\Documentos\JAVA_GITHUB_REPOSITORY\SolvdLaba\solvd\src\resources" />
+      <recent name="F:\Documentos\JAVA_GITHUB_REPOSITORY\SolvdLaba\solvd\src\hospital" />
+      <recent name="F:\Documentos\JAVA_GITHUB_REPOSITORY\SolvdLaba\.idea\libraries" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0968595a-058e-4d7d-b9c1-8c8d12498568" name="Changes" comment="" />
+      <created>1669056041635</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1669056041635</updated>
+    </task>
+    <task id="LOCAL-00001" summary="still not finished">
+      <created>1669984444514</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1669984444514</updated>
+    </task>
+    <task id="LOCAL-00002" summary="logger not working yet">
+      <created>1670301148854</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1670301148854</updated>
+    </task>
+    <task id="LOCAL-00003" summary="logger not working yet">
+      <created>1670328754705</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1670328754705</updated>
+    </task>
+    <task id="LOCAL-00004" summary="logger working">
+      <created>1670328784992</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1670328784992</updated>
+    </task>
+    <task id="LOCAL-00005" summary="logger working">
+      <created>1670329997426</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1670329997426</updated>
+    </task>
+    <task id="LOCAL-00006" summary="working fine">
+      <created>1670331521052</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1670331521052</updated>
+    </task>
+    <task id="LOCAL-00007" summary="working fine">
+      <created>1670336535419</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1670336535419</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="still not finished" />
+    <MESSAGE value="logger not working yet" />
+    <MESSAGE value="logger working" />
+    <MESSAGE value="working fine" />
+    <option name="LAST_COMMIT_MESSAGE" value="working fine" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
