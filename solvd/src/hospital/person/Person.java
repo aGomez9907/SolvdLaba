@@ -1,6 +1,13 @@
 package hospital.person;
 
+import hospital.exceptions.InvalidAgeException;
+import hospital.exceptions.NameIsEmptyException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public abstract class Person {
+
+
     private String name;
     private int age;
 
@@ -9,12 +16,17 @@ public abstract class Person {
 
     }
 
-    public Person(String name, int age) {
-        if (age < 0) {
-            this.age = -1;
-        }
-        this.name = name;
-        this.age = age;
+    public Person(String name, int age) throws InvalidAgeException, NameIsEmptyException {
+
+            if (age < 0) {
+                throw new InvalidAgeException( "Age must be higher or equal than 0.");
+            }
+            if(name.isEmpty()){
+                throw new NameIsEmptyException("Name cannot be empty.");
+            }
+            this.name = name;
+            this.age = age;
+
 
     }
 

@@ -1,15 +1,21 @@
 package hospital;
 
+import hospital.exceptions.InvalidAgeException;
+import hospital.exceptions.NameIsEmptyException;
 import hospital.person.Doctors.Doctor;
 import hospital.person.Nurse;
 import hospital.person.Patient;
 import hospital.room.rooms.HospitalRoom;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Hospital {
+
+    private static final Logger LOGGER = LogManager.getLogger();
     static ArrayList<Appointment> AppointmentArrayList = new ArrayList<>();
     static ArrayList<Doctor> DoctorArraylist = new ArrayList<>();
 
@@ -18,10 +24,19 @@ public class Hospital {
     static ArrayList<HospitalRoom> RoomArraylist = new ArrayList<>();
 
 
-    public static void newPatient(String name, int age, boolean isMale, String nationality, String symptoms, int weight, int height) {
-        PatientsArraylist.add(new Patient(name, age, isMale, symptoms, weight, height));
-    }
+    public static void newPatient(String name, int age, boolean isMale, String symptoms, int weight, int height) throws InvalidAgeException, NameIsEmptyException {
+        try {
+            Patient patient = new Patient(name, age, isMale, symptoms, weight, height);
 
+        } catch (InvalidAgeException | NameIsEmptyException e) {
+            LOGGER.error("Caught exception " + e);
+        } finally {
+            if (!name.isEmpty()) {
+                PatientsArraylist.add(new Patient(name, age, isMale, symptoms, weight, height));
+            }
+
+        }
+    }
 
     public static int getPatient(String name) {
         for (Patient p : PatientsArraylist) {
@@ -30,8 +45,6 @@ public class Hospital {
             }
         }
         return -1;
-
-
     }
 
     public static int getDoctor(String name) {

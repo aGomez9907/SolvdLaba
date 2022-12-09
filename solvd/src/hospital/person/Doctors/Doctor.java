@@ -1,27 +1,25 @@
 package hospital.person.Doctors;
 
+import hospital.exceptions.InvalidAgeException;
+import hospital.exceptions.NameIsEmptyException;
 import hospital.interfaces.IDiagnostic;
+import hospital.interfaces.IGetExam;
 import hospital.person.Patient;
 import hospital.person.Person;
-
-import hospital.interfaces.IGetExam;
-
-
-import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
-
-
+import org.apache.logging.log4j.Logger;
 
 
 public class Doctor extends Person implements IGetExam, IDiagnostic {
 
-    private static Logger LOGGER = LogManager.getLogger();
+    private static final Logger LOGGER = LogManager.getLogger();
+
     //CONSTRUCTOR
     public Doctor() {
 
     }
 
-    public Doctor(String name, int age) {
+    public Doctor(String name, int age) throws InvalidAgeException, NameIsEmptyException {
         super(name, age);
     }
 
@@ -67,17 +65,13 @@ public class Doctor extends Person implements IGetExam, IDiagnostic {
         revision();
 
         LOGGER.info("The diagnosis is: ");
-        switch (p.getSymptoms().toLowerCase()){
-            case "fever":
-                if(measureTemperature()>37) {
-                    LOGGER.info("Patient need to rest and ibuprofen every 8 hours.");
-                    break;
-                }else if(measureTemperature()<34) {
-                    LOGGER.info("Patient has hypothermia, need to warm up.");
-                    break;
-                }else LOGGER.info("Everything fine.");
-                break;
-//            case "headache":
+        if ("fever".equals(p.getSymptoms().toLowerCase())) {
+            if (measureTemperature() > 37) {
+                LOGGER.info("Patient need to rest and ibuprofen every 8 hours.");
+            } else if (measureTemperature() < 34) {
+                LOGGER.info("Patient has hypothermia, need to warm up.");
+            } else LOGGER.info("Everything fine.");
+            //            case "headache":
 //
 //            case "vomit":
 //
@@ -85,13 +79,9 @@ public class Doctor extends Person implements IGetExam, IDiagnostic {
 //            case "broken bone":
 //
 //            case "decompensation":
-
-            default:
-                LOGGER.info("We cannot get a diagnosis for those symptoms.");
-                break;
-
-
+        } else {
+            LOGGER.info("We cannot get a diagnosis for those symptoms.");
         }
     }
-    }
+}
 

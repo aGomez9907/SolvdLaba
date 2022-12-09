@@ -1,5 +1,7 @@
 package hospital.person.Doctors;
 import hospital.Hospital;
+import hospital.exceptions.InvalidAgeException;
+import hospital.exceptions.NameIsEmptyException;
 import hospital.interfaces.IGetExam;
 import hospital.person.Patient;
 import hospital.room.AssignRoom;
@@ -13,7 +15,7 @@ public class Pediatrician extends Doctor{
     public Pediatrician() {
     }
 
-    public Pediatrician(String name, int age){
+    public Pediatrician(String name, int age)throws InvalidAgeException, NameIsEmptyException {
         super(name,age);
     }
 

@@ -1,5 +1,6 @@
 package hospital.room.rooms;
 
+import hospital.exceptions.InvalidRoomNumberException;
 import hospital.person.Patient;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -9,7 +10,7 @@ public class IntensiveCareRoom extends HospitalRoom {
     private static final Logger LOGGER = LogManager.getLogger();
     private Patient patient;
 
-    public IntensiveCareRoom(int roomNumber, Patient patient) {
+    public IntensiveCareRoom(int roomNumber, Patient patient) throws InvalidRoomNumberException {
         super(1, 3, roomNumber);
 
         this.patient = null;

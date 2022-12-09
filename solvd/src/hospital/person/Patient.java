@@ -1,5 +1,8 @@
 package hospital.person;
 
+import hospital.exceptions.InvalidAgeException;
+import hospital.exceptions.NameIsEmptyException;
+
 import java.util.Objects;
 
 public class Patient extends Person {
@@ -12,7 +15,7 @@ public class Patient extends Person {
 
     private boolean isMale;
 
-    public Patient(String name, int age, boolean isMale, String symptoms, int weight, int height) {
+    public Patient(String name, int age, boolean isMale, String symptoms, int weight, int height) throws InvalidAgeException, NameIsEmptyException {
         super(name, age);
         this.weight = weight;
         this.height = height;

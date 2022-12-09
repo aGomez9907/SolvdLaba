@@ -1,29 +1,37 @@
 package hospital;
 
 
+import hospital.exceptions.InvalidAgeException;
+import hospital.exceptions.InvalidRoomNumberException;
+import hospital.exceptions.NameIsEmptyException;
 import hospital.person.Doctors.*;
 import hospital.person.Nurse;
 
 import hospital.person.Patient;
+import hospital.room.AssignRoom;
+import hospital.room.rooms.HospitalRoom;
 import hospital.room.rooms.PatientsRoom;
 
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.ArrayList;
 
 
 public class Runner {
 
     private static final Logger LOGGER = LogManager.getLogger();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InvalidRoomNumberException, InvalidAgeException, NameIsEmptyException {
+
+        Hospital.newPatient("",23,true, "fever",83,182);
 
         //INITIALIZATION OF THE PEOPLE AND ROOMS
-        Hospital.PatientsArraylist.add(new Patient("alejo",23,true, "fever",83,182));
-        Hospital.PatientsArraylist.add(new Patient("robert",29,true, "broken bone",90,172));
-        Hospital.PatientsArraylist.add(new Patient("juana",15,false, "examination",50,117));
-        Hospital.PatientsArraylist.add(new Patient("pepa",29,false, "pregnant",90,172));
+        Hospital.newPatient("alejo",23,true, "fever",83,182);
+        Hospital.newPatient("robert",29,true, "broken bone",90,172);
+        Hospital.newPatient("juana",15,false, "examination",50,117);
+        Hospital.newPatient("pepa",29,false, "pregnant",90,172);
         Hospital.DoctorArraylist.add(new FamilyPhysician("Smith", 30));
         Hospital.DoctorArraylist.add(new Pediatrician("James", 39));
         Hospital.DoctorArraylist.add(new Gynecologist("Jones", 32));
@@ -34,7 +42,10 @@ public class Runner {
         Hospital.RoomArraylist.add(new PatientsRoom(1, Hospital.NurseLinkedList.get(0)));
         Hospital.RoomArraylist.add(new PatientsRoom(2, Hospital.NurseLinkedList.get(1)));
 
+        //Hospital.RoomArraylist.add(new PatientsRoom(-1, Hospital.NurseLinkedList.get(0))); //InvalidRoomNumberException
+        //Hospital.PatientsArraylist.add(new Patient("alejo",-23,true, "fever",83,182)); //InvalidAgeException
 
+        LOGGER.info(Hospital.PatientsArraylist.get(0).getName());
         Hospital.DoctorArraylist.get(0).getDiagnostic(Hospital.PatientsArraylist.get(0));
         Hospital.DoctorArraylist.get(1).getDiagnostic(Hospital.PatientsArraylist.get(1));
         Hospital.DoctorArraylist.get(1).getDiagnostic(Hospital.PatientsArraylist.get(2));
@@ -43,6 +54,8 @@ public class Runner {
 
         LOGGER.info("This is an info message");
         LOGGER.info("Another info message");
+        ArrayList<HospitalRoom> a = new ArrayList<>();
+        AssignRoom.assignRoom(a,Hospital.PatientsArraylist.get(0),true);
 
 
 

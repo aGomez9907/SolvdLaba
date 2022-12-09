@@ -1,5 +1,6 @@
 package hospital.room.rooms;
 
+import hospital.exceptions.InvalidRoomNumberException;
 import hospital.interfaces.IPrepareRoom;
 
 public abstract class HospitalRoom implements IPrepareRoom {
@@ -12,7 +13,11 @@ public abstract class HospitalRoom implements IPrepareRoom {
     }
 
 
-    public HospitalRoom(int numberOfBeds, int floor, int roomNumber) {
+    public HospitalRoom(int numberOfBeds, int floor, int roomNumber) throws InvalidRoomNumberException {
+        if(roomNumber <= 0){
+            throw new InvalidRoomNumberException("Exception: Room number must be higher than zero.");
+        }
+
         this.numberOfBeds = numberOfBeds;
         this.floor = floor;
         this.roomNumber = roomNumber;

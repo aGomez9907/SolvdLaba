@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0968595a-058e-4d7d-b9c1-8c8d12498568" name="Changes" comment="added logger" />
+    <list default="true" id="0968595a-058e-4d7d-b9c1-8c8d12498568" name="Changes" comment="added logger">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/Hospital.java" beforeDir="false" afterPath="$PROJECT_DIR$/solvd/src/hospital/Hospital.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/solvd/src/hospital/Runner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/person/Doctors/Doctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/solvd/src/hospital/person/Doctors/Doctor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/person/Doctors/FamilyPhysician.java" beforeDir="false" afterPath="$PROJECT_DIR$/solvd/src/hospital/person/Doctors/FamilyPhysician.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/person/Doctors/Gynecologist.java" beforeDir="false" afterPath="$PROJECT_DIR$/solvd/src/hospital/person/Doctors/Gynecologist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/person/Doctors/Pediatrician.java" beforeDir="false" afterPath="$PROJECT_DIR$/solvd/src/hospital/person/Doctors/Pediatrician.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/person/Nurse.java" beforeDir="false" afterPath="$PROJECT_DIR$/solvd/src/hospital/person/Nurse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/person/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/solvd/src/hospital/person/Patient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/person/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/solvd/src/hospital/person/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/room/AssignRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/solvd/src/hospital/room/AssignRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/room/rooms/HospitalRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/solvd/src/hospital/room/rooms/HospitalRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/room/rooms/IntensiveCareRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/solvd/src/hospital/room/rooms/IntensiveCareRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/room/rooms/PatientsRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/solvd/src/hospital/room/rooms/PatientsRoom.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,18 +52,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "jdk.selected.JAVA_MODULE": "19",
-    "last_opened_file_path": "F:/Documentos/JAVA_GITHUB_REPOSITORY/SolvdLaba/resources/log4j-core-2.19.0 .jar",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pathVariables"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;19&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/Documentos/JAVA_GITHUB_REPOSITORY/SolvdLaba/resources/log4j-core-2.19.0 .jar&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pathVariables&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\Documentos\JAVA_GITHUB_REPOSITORY\SolvdLaba\resources" />
@@ -150,7 +165,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670463095047</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="added logger">
+      <created>1670463231966</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1670463231966</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

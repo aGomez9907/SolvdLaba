@@ -22,7 +22,6 @@ public class AssignRoom {
 
     public static void assignRoom(ArrayList<HospitalRoom> roomArrayList, Patient patient, boolean isIntensive) {
 
-
         for (HospitalRoom r : roomArrayList) {
             if (!isIntensive) {
                 if (r.getClass().getSimpleName().equals("PatientsRoom")) {
@@ -76,7 +75,6 @@ public class AssignRoom {
         ListIterator<Nurse> listIterator = nurses.listIterator();
 
         if (nurses.listIterator(i).hasNext()) {
-
             return nurses.get(i++);
         } else {
             i = 1;

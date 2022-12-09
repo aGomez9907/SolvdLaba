@@ -1,5 +1,7 @@
 package hospital.person;
 
+import hospital.exceptions.InvalidAgeException;
+import hospital.exceptions.NameIsEmptyException;
 import hospital.interfaces.IPrepareRoom;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -7,7 +9,8 @@ import org.apache.logging.log4j.Logger;
 public class Nurse extends Person implements IPrepareRoom {
 
     private static final Logger LOGGER = LogManager.getLogger();
-    public Nurse(String name, int age){
+
+    public Nurse(String name, int age) throws InvalidAgeException, NameIsEmptyException {
         super(name, age);
     }
 
@@ -29,10 +32,12 @@ public class Nurse extends Person implements IPrepareRoom {
     public void makeBed() {
         LOGGER.info("The bed has been made.");
     }
-    public void disinfectRoom(){
+
+    public void disinfectRoom() {
         LOGGER.info("The room has been disinfected.");
     }
-    public void prepareIVSolution(){
+
+    public void prepareIVSolution() {
         LOGGER.info("The IV solution is ready.");
     }
 }

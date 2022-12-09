@@ -1,20 +1,22 @@
 package hospital.person.Doctors;
 
 import hospital.Hospital;
+import hospital.exceptions.InvalidAgeException;
+import hospital.exceptions.NameIsEmptyException;
 import hospital.interfaces.IGetExam;
 import hospital.person.Patient;
 import hospital.room.AssignRoom;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class Gynecologist extends Doctor{
+public class Gynecologist extends Doctor {
 
     private static Logger LOGGER = LogManager.getLogger();
 
     public Gynecologist() {
     }
 
-    public Gynecologist(String name, int age) {
+    public Gynecologist(String name, int age) throws InvalidAgeException, NameIsEmptyException {
         super(name, age);
     }
 
