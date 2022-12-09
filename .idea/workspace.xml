@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0968595a-058e-4d7d-b9c1-8c8d12498568" name="Changes" comment="added logger">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/Hospital.java" beforeDir="false" afterPath="$PROJECT_DIR$/solvd/src/hospital/Hospital.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/solvd/src/hospital/Runner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/person/Doctors/Doctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/solvd/src/hospital/person/Doctors/Doctor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/person/Doctors/FamilyPhysician.java" beforeDir="false" afterPath="$PROJECT_DIR$/solvd/src/hospital/person/Doctors/FamilyPhysician.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/person/Doctors/Gynecologist.java" beforeDir="false" afterPath="$PROJECT_DIR$/solvd/src/hospital/person/Doctors/Gynecologist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/person/Doctors/Pediatrician.java" beforeDir="false" afterPath="$PROJECT_DIR$/solvd/src/hospital/person/Doctors/Pediatrician.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/person/Nurse.java" beforeDir="false" afterPath="$PROJECT_DIR$/solvd/src/hospital/person/Nurse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/person/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/solvd/src/hospital/person/Patient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/person/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/solvd/src/hospital/person/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/room/AssignRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/solvd/src/hospital/room/AssignRoom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/room/rooms/HospitalRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/solvd/src/hospital/room/rooms/HospitalRoom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/room/rooms/IntensiveCareRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/solvd/src/hospital/room/rooms/IntensiveCareRoom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/solvd/src/hospital/room/rooms/PatientsRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/solvd/src/hospital/room/rooms/PatientsRoom.java" afterDir="false" />
-    </list>
+    <list default="true" id="0968595a-058e-4d7d-b9c1-8c8d12498568" name="Changes" comment="added exceptions" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -172,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670463231966</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="added exceptions">
+      <created>1670557413559</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1670557413559</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -192,7 +184,8 @@
     <MESSAGE value="logger working" />
     <MESSAGE value="working fine" />
     <MESSAGE value="added logger" />
-    <option name="LAST_COMMIT_MESSAGE" value="added logger" />
+    <MESSAGE value="added exceptions" />
+    <option name="LAST_COMMIT_MESSAGE" value="added exceptions" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

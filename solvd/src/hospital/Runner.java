@@ -25,7 +25,7 @@ public class Runner {
 
     public static void main(String[] args) throws InvalidRoomNumberException, InvalidAgeException, NameIsEmptyException {
 
-        Hospital.newPatient("",23,true, "fever",83,182);
+        //Hospital.newPatient("",23,true, "fever",83,182); //NameIsEmptyException
 
         //INITIALIZATION OF THE PEOPLE AND ROOMS
         Hospital.newPatient("alejo",23,true, "fever",83,182);
