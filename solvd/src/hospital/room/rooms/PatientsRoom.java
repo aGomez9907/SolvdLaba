@@ -37,16 +37,20 @@ public class PatientsRoom extends HospitalRoom {
 
 
     public void makeBed() {
-        LOGGER.info("Bed ready for patient.");
+        LOGGER.info("Nurse "+ nurse.getName()+" prepared the bed for the patient.");
     }
 
     ;
 
     public void disinfectRoom() {
-        LOGGER.info("Room ready for patient.");
+        LOGGER.info("Nurse "+ nurse.getName()+" disinfected the room for the patient.");
     }
 
     public void prepareIVSolution() {
-        LOGGER.info("IV solution ready for patient.");
+        LOGGER.info("Nurse "+ nurse.getName()+" prepared the IV solution for the patient.");
+    }
+
+    public Nurse getNurse() {
+        return nurse;
     }
 }

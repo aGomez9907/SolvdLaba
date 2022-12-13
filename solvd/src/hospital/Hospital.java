@@ -1,8 +1,10 @@
 package hospital;
 
-import hospital.exceptions.InvalidAgeException;
-import hospital.exceptions.NameIsEmptyException;
+import hospital.exceptions.*;
 import hospital.person.Doctors.Doctor;
+import hospital.person.Doctors.FamilyPhysician;
+import hospital.person.Doctors.Gynecologist;
+import hospital.person.Doctors.Pediatrician;
 import hospital.person.Nurse;
 import hospital.person.Patient;
 import hospital.room.rooms.HospitalRoom;
@@ -16,47 +18,69 @@ import java.util.LinkedList;
 public class Hospital {
 
     private static final Logger LOGGER = LogManager.getLogger();
-    static ArrayList<Appointment> AppointmentArrayList = new ArrayList<>();
-    static ArrayList<Doctor> DoctorArraylist = new ArrayList<>();
+    private ArrayList<Appointment> appointmentArrayList = new ArrayList<>();
+    private ArrayList<Doctor> doctorArraylist = new ArrayList<>();
 
-    static ArrayList<Patient> PatientsArraylist = new ArrayList<>();
-    static LinkedList<Nurse> NurseLinkedList = new LinkedList<>();
-    static ArrayList<HospitalRoom> RoomArraylist = new ArrayList<>();
+    private ArrayList<Patient> patientsArraylist = new ArrayList<>();
+    private LinkedList<Nurse> nurseLinkedList = new LinkedList<>();
+    private ArrayList<HospitalRoom> roomArraylist = new ArrayList<>();
 
 
-    public static void newPatient(String name, int age, boolean isMale, String symptoms, int weight, int height) throws InvalidAgeException, NameIsEmptyException {
-        try {
-            Patient patient = new Patient(name, age, isMale, symptoms, weight, height);
+    public void newAppointment(Appointment appointment){
+        appointmentArrayList.add(appointment);
+    }
 
-        } catch (InvalidAgeException | NameIsEmptyException e) {
-            LOGGER.error("Caught exception " + e);
-        } finally {
-            if (!name.isEmpty()) {
-                PatientsArraylist.add(new Patient(name, age, isMale, symptoms, weight, height));
-            }
+    public void newPatient(Patient patient) throws InvalidAgeException,NameIsEmptyException {
+                patientsArraylist.add(patient);
+    }
+
+    public void newDoctor(Doctor doctor, String specialty) throws WrongSpecialtyException{
+        switch (specialty.toLowerCase()){
+            case "familphysician":
+                FamilyPhysician f = (FamilyPhysician) doctor;
+                doctorArraylist.add(f);
+                break;
+            case "gynecologist":
+                Gynecologist g = (Gynecologist) doctor;
+                doctorArraylist.add(g);
+                break;
+            case "pediatrician":
+                Pediatrician p = (Pediatrician) doctor;
+                doctorArraylist.add(p);
+                break;
+            default:
+                throw new WrongSpecialtyException();
 
         }
     }
 
-    public static int getPatient(String name) {
-        for (Patient p : PatientsArraylist) {
+    public void newHospitalRoom(HospitalRoom r){
+        roomArraylist.add(r);
+    }
+
+    public void newNurse(Nurse nurse) throws InvalidAgeException, NameIsEmptyException {
+        nurseLinkedList.add(nurse);
+    }
+
+    public  Patient getPatient(String name) throws PersonNotFoundException {
+        for (Patient p : patientsArraylist) {
             if (p.getName().equals(name)) {
-                return PatientsArraylist.indexOf(p);
+                return p;
             }
         }
-        return -1;
+        throw new PersonNotFoundException(); //added exception
     }
 
-    public static int getDoctor(String name) {
-        for (Doctor d : DoctorArraylist) {
+    public  Doctor getDoctor(String name) throws PersonNotFoundException{
+        for (Doctor d : doctorArraylist) {
             if (d.getName().equals(name)) {
-                return DoctorArraylist.indexOf(d);
+                return d;
             }
         }
-        return -1;
+        throw new PersonNotFoundException(); //added exception
     }
 
-//    public static void assignRoom(Patient patient) {
+//    public  void assignRoom(Patient patient) {
 //        for (PatientsRoom pr : RoomArraylist) {
 //            if(pr.getPatient1() == null){
 //                pr.setPatient1(patient);
@@ -69,28 +93,42 @@ public class Hospital {
 //
 //    }
 
-    public static int getDoctorPerSpecialty(String specialty) {
-        for (Doctor d : DoctorArraylist) {
+    public  Doctor getDoctorPerSpecialty(String specialty) throws PersonNotFoundException{
+        for (Doctor d : doctorArraylist) {
             if (d.getClass().getSimpleName().equals(specialty)) {
-                return DoctorArraylist.indexOf(d);
+                return d;
             }
         }
-        return -1;
+        throw new PersonNotFoundException();
     }
 
-    public static void setAppointment(int indexOfPatient, int indexOfDoctor, String date) {
+    //NEED TO BE CHANGED
+    // STOP USING INDEX, INSTEAD USE PATIENT ITSELF
+//    public  void setAppointment(int indexOfPatient, int indexOfDoctor, String date) {
+//
+//        appointmentArrayList.add(new Appointment(LocalDate.parse(date), doctorArraylist.get(indexOfDoctor), patientsArraylist.get(indexOfPatient)));
+//
+//
+//    }
 
-        AppointmentArrayList.add(new Appointment(LocalDate.parse(date), DoctorArraylist.get(indexOfDoctor), PatientsArraylist.get(indexOfPatient)));
-
-
+    public LinkedList<Nurse> getNurseLinkedList() {
+        return nurseLinkedList;
     }
 
-    public static LinkedList<Nurse> getNurseLinkedList() {
-        return NurseLinkedList;
+    public ArrayList<HospitalRoom> getRoomArraylist() {
+        return roomArraylist;
     }
 
-    public static ArrayList<HospitalRoom> getRoomArraylist() {
-        return RoomArraylist;
+    public ArrayList<Appointment> getAppointmentArrayList() {
+        return appointmentArrayList;
+    }
+
+    public ArrayList<Doctor> getDoctorArraylist() {
+        return doctorArraylist;
+    }
+
+    public ArrayList<Patient> getPatientsArraylist() {
+        return patientsArraylist;
     }
 }
 

@@ -29,7 +29,7 @@ public class FamilyPhysician extends Doctor {
 
 
     @Override
-    public void getDiagnostic(Patient p) {
+    public void getDiagnostic(Patient p, Hospital hospital) {
 
         revision();
 
@@ -50,7 +50,7 @@ public class FamilyPhysician extends Doctor {
             case "broken bone":
                 if (IGetExam.getExam()){
                     LOGGER.info("Open fracture, need to stay in hospital.");
-                    AssignRoom.assignRoom(Hospital.getRoomArraylist(),p,true);
+                    AssignRoom.assignRoom(hospital,p,true);
                     break;
                 }else LOGGER.info("Use a cast and get rest. Patient can go home");
 

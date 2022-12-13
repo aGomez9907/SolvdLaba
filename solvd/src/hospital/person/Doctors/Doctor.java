@@ -1,5 +1,6 @@
 package hospital.person.Doctors;
 
+import hospital.Hospital;
 import hospital.exceptions.InvalidAgeException;
 import hospital.exceptions.NameIsEmptyException;
 import hospital.interfaces.IDiagnostic;
@@ -60,7 +61,7 @@ public class Doctor extends Person implements IGetExam, IDiagnostic {
     }
 
     @Override
-    public void getDiagnostic(Patient p) {
+    public void getDiagnostic(Patient p, Hospital hospital) {
 
         revision();
 

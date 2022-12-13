@@ -32,7 +32,7 @@ public class Gynecologist extends Doctor {
     public boolean pregnancyTest(){return IGetExam.getExam();}
 
     @Override
-    public void getDiagnostic(Patient p) {
+    public void getDiagnostic(Patient p, Hospital hospital) {
         if(p.isMale()){
             LOGGER.info("The patient is male. Cannot be diagnosed.");
             return;
@@ -47,7 +47,7 @@ public class Gynecologist extends Doctor {
                    LOGGER.info("Everything is fine, can go home.");
                }else {
                    LOGGER.info("Exams went bad, need to stay at hospital");
-                   AssignRoom.assignRoom(Hospital.getRoomArraylist(),p,false);
+                   AssignRoom.assignRoom(hospital,p,false);
                }
                break;
 

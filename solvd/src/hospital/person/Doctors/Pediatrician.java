@@ -29,7 +29,7 @@ public class Pediatrician extends Doctor{
     }
 
 
-    public void getDiagnostic(Patient p) {
+    public void getDiagnostic(Patient p, Hospital hospital) {
         if (p.getAge()>=18){
             LOGGER.info("Not a kid, cannot be diagnosed.");
         }
@@ -52,11 +52,10 @@ public class Pediatrician extends Doctor{
             case "broken bone":
                 if (IGetExam.getExam()){
                     LOGGER.info("Open fracture, need to stay in hospital.");
-                    AssignRoom.assignRoom(Hospital.getRoomArraylist(),p,false);
+                    AssignRoom.assignRoom(hospital,p,false);
                     break;
                 }else LOGGER.info("Use a cast and get rest. Patient can go home");
-
-
+                break;
             default:
                 LOGGER.info("We cannot get a diagnosis for those symptoms.");
                 break;

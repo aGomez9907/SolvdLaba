@@ -20,7 +20,11 @@ public class AssignRoom {
 
     private static int i = 0;
 
-    public static void assignRoom(ArrayList<HospitalRoom> roomArrayList, Patient patient, boolean isIntensive) {
+    public static void assignRoom(Hospital hospital, Patient patient, boolean isIntensive) {
+
+
+        ArrayList<HospitalRoom> roomArrayList = hospital.getRoomArraylist();
+
 
         for (HospitalRoom r : roomArrayList) {
             if (!isIntensive) {
@@ -28,20 +32,18 @@ public class AssignRoom {
                     PatientsRoom pr = (PatientsRoom) r;
                     if (pr.getPatient1() == null) {
 
-                        Nurse nurse = getNextNurse();
-                        nurse.disinfectRoom();
-                        nurse.makeBed();
-                        nurse.prepareIVSolution();
+                        pr.getNurse().disinfectRoom();
+                        pr.getNurse().makeBed();
+                        pr.getNurse().prepareIVSolution();
 
                         pr.setPatient1(patient);
                         LOGGER.info("Patient set in room N°" + pr.getRoomNumber());
                         return;
                     } else if (pr.getPatient2() == null) {
 
-                        Nurse nurse = getNextNurse();
-                        nurse.disinfectRoom();
-                        nurse.makeBed();
-                        nurse.prepareIVSolution();
+                        pr.getNurse().disinfectRoom();
+                        pr.getNurse().makeBed();
+                        pr.getNurse().prepareIVSolution();
 
                         pr.setPatient2(patient);
                         LOGGER.info("Patient set in room N°" + pr.getRoomNumber());
@@ -54,12 +56,11 @@ public class AssignRoom {
                     IntensiveCareRoom ir = (IntensiveCareRoom) r;
                     if (ir.getPatient() == null) {
 
-                        Nurse nurse = getNextNurse();
-                        nurse.disinfectRoom();
-                        nurse.makeBed();
-                        nurse.prepareIVSolution();
-
+                        ir.getNurse().disinfectRoom();
+                        ir.getNurse().makeBed();
+                        ir.getNurse().prepareIVSolution();
                         ir.setPatient(patient);
+
                         LOGGER.info("Patient set in room N°" + ir.getRoomNumber());
                         return;
                     } else LOGGER.info("No bed available in room N°" + ir.getRoomNumber());
@@ -70,18 +71,8 @@ public class AssignRoom {
     }
 
 
-    public static Nurse getNextNurse() {
-        LinkedList<Nurse> nurses = Hospital.getNurseLinkedList();
-        ListIterator<Nurse> listIterator = nurses.listIterator();
-
-        if (nurses.listIterator(i).hasNext()) {
-            return nurses.get(i++);
-        } else {
-            i = 1;
-            return nurses.get(0);
-        }
 
 
     }
 
-}
+
