@@ -2,7 +2,6 @@ package hospital.room;
 
 
 import hospital.Hospital;
-import hospital.person.Nurse;
 import hospital.person.Patient;
 import hospital.room.rooms.HospitalRoom;
 import hospital.room.rooms.IntensiveCareRoom;
@@ -11,8 +10,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.ListIterator;
 
 public class AssignRoom {
 
@@ -71,8 +68,6 @@ public class AssignRoom {
     }
 
 
-
-
-    }
+}
 
 

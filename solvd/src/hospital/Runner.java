@@ -5,20 +5,13 @@ import hospital.exceptions.InvalidAgeException;
 import hospital.exceptions.InvalidRoomNumberException;
 import hospital.exceptions.NameIsEmptyException;
 import hospital.exceptions.WrongSpecialtyException;
-import hospital.person.Doctors.*;
+import hospital.person.Doctors.Doctor;
 import hospital.person.Nurse;
-
 import hospital.person.Patient;
-import hospital.room.AssignRoom;
-import hospital.room.rooms.HospitalRoom;
 import hospital.room.rooms.IntensiveCareRoom;
 import hospital.room.rooms.PatientsRoom;
-
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.util.ArrayList;
 
 
 public class Runner {
@@ -28,23 +21,21 @@ public class Runner {
     public static void main(String[] args) throws InvalidRoomNumberException, InvalidAgeException, NameIsEmptyException, WrongSpecialtyException {
 
 
-
         //INITIALIZATION OF THE PEOPLE AND ROOMS
 
 
         Hospital hospital = new Hospital();
 
 
+        addPatient("alejo", 23, true, "fever", 83, 182, hospital);
+        addPatient("robert", 29, true, "broken bone", 90, 172, hospital);
+        addPatient("juana", 15, false, "examination", 50, 117, hospital);
+        addPatient("pepa", 29, false, "pregnant", 90, 172, hospital);
 
-        addPatient("alejo",23,true, "fever",83,182, hospital);
-        addPatient("robert",29,true, "broken bone",90,172, hospital);
-        addPatient("juana",15,false, "examination",50,117, hospital);
-        addPatient("pepa",29,false, "pregnant",90,172, hospital);
 
-
-        addDoctor("Smith", 30,"FamilyPhysician",hospital);
-        addDoctor("James", 39,"Pediatrician", hospital);
-        addDoctor("Jones", 32,"Gynecologist",hospital);
+        addDoctor("Smith", 30, "FamilyPhysician", hospital);
+        addDoctor("James", 39, "Pediatrician", hospital);
+        addDoctor("Jones", 32, "Gynecologist", hospital);
 
         addNurse("Ramirez", 21, hospital);
         addNurse("Da Silva", 28, hospital);
@@ -56,8 +47,7 @@ public class Runner {
         addPatientsRoom(2, hospital.getNurseLinkedList().get(1), hospital);
         addPatientsRoom(3, hospital.getNurseLinkedList().get(2), hospital);
 
-        addIntensiveCareRoom(4,hospital.getNurseLinkedList().get(3), hospital);
-
+        addIntensiveCareRoom(4, hospital.getNurseLinkedList().get(3), hospital);
 
 
         //EXCEPTIONS
@@ -67,18 +57,11 @@ public class Runner {
         //hospital.getRoomArraylist().add(new PatientsRoom(-1, hospital.getNurseLinkedList().get(0))); //InvalidRoomNumberException
 
 
-
-
-
         //Testing if logger works as intended
 
         LOGGER.info(hospital.getPatientsArraylist().get(0).getName());
         LOGGER.info("This is an info message");
         LOGGER.info("Another info message");
-
-
-
-
 
 
         //MENU STILL NOT FINISHED
@@ -165,54 +148,49 @@ public class Runner {
 //    }
 
 
-
-
-    public static void addPatient(String name, int age, boolean isMale, String symptoms, int weight, int height, Hospital hospital) throws InvalidAgeException, NameIsEmptyException{
-        try{
+    public static void addPatient(String name, int age, boolean isMale, String symptoms, int weight, int height, Hospital hospital) throws InvalidAgeException, NameIsEmptyException {
+        try {
             Patient p = new Patient(name, age, isMale, symptoms, weight, height);
             hospital.newPatient(p);
-        }
-        catch (InvalidAgeException | NameIsEmptyException e) {
+        } catch (InvalidAgeException | NameIsEmptyException e) {
             LOGGER.error("Caught exception " + e);
         }
     }
 
 
-    public static void addDoctor(String name, int age,String specialty, Hospital hospital) throws InvalidAgeException, NameIsEmptyException, WrongSpecialtyException{
-        try{
+    public static void addDoctor(String name, int age, String specialty, Hospital hospital) throws InvalidAgeException, NameIsEmptyException, WrongSpecialtyException {
+        try {
             Doctor d = new Doctor(name, age);
             hospital.newDoctor(d, specialty);
-        }
-        catch (InvalidAgeException | NameIsEmptyException e) {
+        } catch (InvalidAgeException | NameIsEmptyException e) {
             LOGGER.error("Caught exception " + e);
         }
     }
 
 
     public static void addNurse(String name, int age, Hospital hospital) throws InvalidAgeException, NameIsEmptyException {
-        try{
+        try {
             Nurse n = new Nurse(name, age);
             hospital.newNurse(n);
-        }
-        catch (InvalidAgeException | NameIsEmptyException e) {
+        } catch (InvalidAgeException | NameIsEmptyException e) {
             LOGGER.error("Caught exception " + e);
         }
     }
-    public static void addPatientsRoom(int roomNumber, Nurse nurse, Hospital hospital) throws InvalidRoomNumberException{
-        try{
+
+    public static void addPatientsRoom(int roomNumber, Nurse nurse, Hospital hospital) throws InvalidRoomNumberException {
+        try {
             PatientsRoom r = new PatientsRoom(roomNumber, nurse);
             hospital.newHospitalRoom(r);
-        }
-        catch (InvalidRoomNumberException e) {
+        } catch (InvalidRoomNumberException e) {
             LOGGER.error("Caught exception " + e);
         }
     }
-    public static void addIntensiveCareRoom(int roomNumber, Nurse nurse, Hospital hospital) throws InvalidRoomNumberException{
-        try{
+
+    public static void addIntensiveCareRoom(int roomNumber, Nurse nurse, Hospital hospital) throws InvalidRoomNumberException {
+        try {
             IntensiveCareRoom r = new IntensiveCareRoom(roomNumber, nurse);
             hospital.newHospitalRoom(r);
-        }
-        catch (InvalidRoomNumberException e) {
+        } catch (InvalidRoomNumberException e) {
             LOGGER.error("Caught exception " + e);
         }
     }

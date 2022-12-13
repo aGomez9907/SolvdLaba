@@ -14,7 +14,7 @@ public abstract class HospitalRoom implements IPrepareRoom {
 
 
     public HospitalRoom(int numberOfBeds, int floor, int roomNumber) throws InvalidRoomNumberException {
-        if(roomNumber <= 0){
+        if (roomNumber <= 0) {
             throw new InvalidRoomNumberException("Exception: Room number must be higher than zero.");
         }
 

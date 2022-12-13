@@ -1,11 +1,12 @@
 package hospital.exceptions;
 
-public class WrongSpecialtyException extends Exception{
+public class WrongSpecialtyException extends Exception {
 
-    public WrongSpecialtyException(String message){
+    public WrongSpecialtyException(String message) {
         super(message);
     }
-    public WrongSpecialtyException(){
+
+    public WrongSpecialtyException() {
 
     }
 }

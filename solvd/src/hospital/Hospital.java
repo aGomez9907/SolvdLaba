@@ -1,6 +1,9 @@
 package hospital;
 
-import hospital.exceptions.*;
+import hospital.exceptions.InvalidAgeException;
+import hospital.exceptions.NameIsEmptyException;
+import hospital.exceptions.PersonNotFoundException;
+import hospital.exceptions.WrongSpecialtyException;
 import hospital.person.Doctors.Doctor;
 import hospital.person.Doctors.FamilyPhysician;
 import hospital.person.Doctors.Gynecologist;
@@ -11,7 +14,6 @@ import hospital.room.rooms.HospitalRoom;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -26,16 +28,16 @@ public class Hospital {
     private ArrayList<HospitalRoom> roomArraylist = new ArrayList<>();
 
 
-    public void newAppointment(Appointment appointment){
+    public void newAppointment(Appointment appointment) {
         appointmentArrayList.add(appointment);
     }
 
-    public void newPatient(Patient patient) throws InvalidAgeException,NameIsEmptyException {
-                patientsArraylist.add(patient);
+    public void newPatient(Patient patient) throws InvalidAgeException, NameIsEmptyException {
+        patientsArraylist.add(patient);
     }
 
-    public void newDoctor(Doctor doctor, String specialty) throws WrongSpecialtyException{
-        switch (specialty.toLowerCase()){
+    public void newDoctor(Doctor doctor, String specialty) throws WrongSpecialtyException {
+        switch (specialty.toLowerCase()) {
             case "familphysician":
                 FamilyPhysician f = (FamilyPhysician) doctor;
                 doctorArraylist.add(f);
@@ -54,7 +56,7 @@ public class Hospital {
         }
     }
 
-    public void newHospitalRoom(HospitalRoom r){
+    public void newHospitalRoom(HospitalRoom r) {
         roomArraylist.add(r);
     }
 
@@ -62,7 +64,7 @@ public class Hospital {
         nurseLinkedList.add(nurse);
     }
 
-    public  Patient getPatient(String name) throws PersonNotFoundException {
+    public Patient getPatient(String name) throws PersonNotFoundException {
         for (Patient p : patientsArraylist) {
             if (p.getName().equals(name)) {
                 return p;
@@ -71,7 +73,7 @@ public class Hospital {
         throw new PersonNotFoundException(); //added exception
     }
 
-    public  Doctor getDoctor(String name) throws PersonNotFoundException{
+    public Doctor getDoctor(String name) throws PersonNotFoundException {
         for (Doctor d : doctorArraylist) {
             if (d.getName().equals(name)) {
                 return d;
@@ -93,7 +95,7 @@ public class Hospital {
 //
 //    }
 
-    public  Doctor getDoctorPerSpecialty(String specialty) throws PersonNotFoundException{
+    public Doctor getDoctorPerSpecialty(String specialty) throws PersonNotFoundException {
         for (Doctor d : doctorArraylist) {
             if (d.getClass().getSimpleName().equals(specialty)) {
                 return d;
